@@ -29,70 +29,70 @@ def porcent(index,max):
     return porcent
 
 def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
-    msg = '📥DESCARGANDO📡... \n\n'
-    msg+= '🏷️ NAME: ' + str(filename)+'\n'
-    msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(totalBits))+'\n'
-    msg+= '📥 DOWNLOADED: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '📶 SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= '⏲️ TIME LEFT: ' + str(datetime.timedelta(seconds=int(time))) +'\n\n'
+    msg = '📥Downloading📡... \n\n'
+    msg+= '🏷️ Name: ' + str(filename)+'\n'
+    msg+= '📦 Total size: ' + str(sizeof_fmt(totalBits))+'\n'
+    msg+= '📥 Downloaded: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '📶 Speed: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '⏲️ Time left: ' + str(datetime.timedelta(seconds=int(time))) +'\n\n'
 
-    msg = '📥DESCARGANDO ARCHIVO📡...\n\n'
-    msg += '📦 Archivo: '+filename+'\n'
+    msg = '📥Downloading file📡...\n\n'
+    msg += '📦 File: '+filename+'\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '📊 PERCENTAGE: '+str(porcent(currentBits,totalBits))+'%\n\n'
-    msg += '📦 TOTAL SIZE: '+sizeof_fmt(totalBits)+'\n\n'
-    msg += '📥 DOWNLOADED: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '📶 SPEED: '+sizeof_fmt(speed)+'/s\n\n'
-    msg += '⏲️ TIME LEFT: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += '📊 Percentage: '+str(porcent(currentBits,totalBits))+'%\n\n'
+    msg += '📦 Total size: '+sizeof_fmt(totalBits)+'\n\n'
+    msg += '📥 Downloaded: '+sizeof_fmt(currentBits)+'\n\n'
+    msg += '📶 Speed: '+sizeof_fmt(speed)+'/s\n\n'
+    msg += '⏲️ Time left: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
         msg+= '/cancel_' + tid
     return msg
 def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
-    msg = '📤UPLOADING☁️... \n\n'
-    msg+= '🏷️ FILE: ' + str(filename)+'\n'
+    msg = '📤Uploading☁️... \n\n'
+    msg+= '🏷️ File: ' + str(filename)+'\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= '📤 UPLOADING: ' + str(filename)+'\n'
-    msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(totalBits))+'\n'
-    msg+= '📤 UPLOADED: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '📶 SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= '⏲️ TIME LEFT: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+        msg+= '📤 Uploading: ' + str(filename)+'\n'
+    msg+= '📦 Total size: ' + str(sizeof_fmt(totalBits))+'\n'
+    msg+= '📤 Uploaded: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '📶 Speed: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '⏲️ Time left: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
-    msg = '📤UPLOADING☁️...\n\n'
-    msg += '🏷️ NAME: '+filename+'\n'
+    msg = '📤Uploading☁️...\n\n'
+    msg += '🏷️ Name: '+filename+'\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= '📚 PART: ' + str(filename)+'\n'
+        msg+= '📚 Part: ' + str(filename)+'\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '📊 PERCENTAGE: '+str(porcent(currentBits,totalBits))+'%\n\n'
-    msg += '📦 TOTAL SIZE: '+sizeof_fmt(totalBits)+'\n\n'
-    msg += '📤 UPLOADED: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '📶 SPEED: '+sizeof_fmt(speed)+'/s\n\n'
-    msg += '⏲️ TIME LEFT: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += '📊 Percentage: '+str(porcent(currentBits,totalBits))+'%\n\n'
+    msg += '📦 Total size: '+sizeof_fmt(totalBits)+'\n\n'
+    msg += '📤 Uploaded: '+sizeof_fmt(currentBits)+'\n\n'
+    msg += '📶 Speed: '+sizeof_fmt(speed)+'/s\n\n'
+    msg += '⏲️ Time left: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
-    msg = '🗜️COMPRESSING🗜️... \n\n'
-    msg+= '🏷️ NAME: ' + str(filename)+'\n'
-    msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📚 PARTS SIZE: ' + str(sizeof_fmt(splitsize))+'\n'
-    msg+= '📕 AMOUNT OF PARTS: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
+    msg = '🗜️Compressing🗜️... \n\n'
+    msg+= '🏷️ Name: ' + str(filename)+'\n'
+    msg+= '📦 Total size: ' + str(sizeof_fmt(filesize))+'\n'
+    msg+= '📚 Parts size: ' + str(sizeof_fmt(splitsize))+'\n'
+    msg+= '📕 Amount of parts: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
 
     return msg
 def createFinishUploading(filename,filesize,split_size,current,count,findex):
-    msg = '📌FINISHED PROCESS📌\n\n'
-    msg+= '🏷️ NAME: ' + str(filename)+'\n'
-    msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📚 PARTS SIZE: ' + str(sizeof_fmt(split_size))+'\n'
-    msg+= '📤 UPLOADED PARTS: ' + str(current) + '/' + str(count) +'\n\n'
-    msg+= '🗑️DELETE FILE🗑️: ' + '/del_'+str(findex)
+    msg = '📌Finished process📌\n\n'
+    msg+= '🏷️ Name: ' + str(filename)+'\n'
+    msg+= '📦 Total size: ' + str(sizeof_fmt(filesize))+'\n'
+    msg+= '📚 Parts size: ' + str(sizeof_fmt(split_size))+'\n'
+    msg+= '📤 Uploaded parts: ' + str(current) + '/' + str(count) +'\n\n'
+    msg+= '🗑️Delete file🗑️: ' + '/del_'+str(findex)
     return msg
 
 def createFileMsg(filename,files):
     import urllib
     if len(files)>0:
-        msg= '<b>🔗LINKS🔗</b>\n'
+        msg= '<b>🔗Links🔗</b>\n'
         for f in files:
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
@@ -101,7 +101,7 @@ def createFileMsg(filename,files):
     return ''
 
 def createFilesMsg(evfiles):
-    msg = '📑FILES ('+str(len(evfiles))+')📑\n\n'
+    msg = '📑Files ('+str(len(evfiles))+')📑\n\n'
     i = 0
     for f in evfiles:
             try:
@@ -118,30 +118,30 @@ def createFilesMsg(evfiles):
     return msg
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '⚙️USER CONFIGURATION⚙️\n\n'
-    msg+= '👤 NAME: @' + str(username)+'\n'
-    msg+= '👤 USER: ' + str(userdata['moodle_user'])+'\n'
-    msg+= '🔑 PASSWORD: ' + str(userdata['moodle_password'])+'\n'
-    msg+= '🌐 CLOUD URL: ' + str(userdata['moodle_host'])+'\n'
+    msg = '⚙️User configuration⚙️\n\n'
+    msg+= '👤 Name: @' + str(username)+'\n'
+    msg+= '👤 User: ' + str(userdata['moodle_user'])+'\n'
+    msg+= '🔑 Password: ' + str(userdata['moodle_password'])+'\n'
+    msg+= '🌐 Cloud URL: ' + str(userdata['moodle_host'])+'\n'
     if userdata['cloudtype'] == 'moodle':
-        msg+= '🆔 CLOUD ID: ' + str(userdata['moodle_repo_id'])+'\n'
-    msg+= '☁️ CLOUD TYPE: ' + str(userdata['cloudtype'])+'\n'
-    msg+= '🔼 UPLOAD TYPE: ' + str(userdata['uploadtype'])+'\n'
+        msg+= '🆔 Cloud ID: ' + str(userdata['moodle_repo_id'])+'\n'
+    msg+= '☁️ Cloud type: ' + str(userdata['cloudtype'])+'\n'
+    msg+= '🔼 Upload type: ' + str(userdata['uploadtype'])+'\n'
     if userdata['cloudtype'] == 'cloud':
-        msg+= '📁 DIRECTORY: /' + str(userdata['dir'])+'\n'
-    msg+= '🗜️ ZIPS SIZE: ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
-    msgAdmin = '🔴'
+        msg+= '📁 Directory: /' + str(userdata['dir'])+'\n'
+    msg+= '🗜️ Zips size: ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
+    msgAdmin = 'No'
     if isadmin:
-        msgAdmin = '🟢'
-    msg+= '👮 ADMIN : ' + msgAdmin + '\n'
-    proxy = '🔴'
+        msgAdmin = 'Yes'
+    msg+= '👮 Administrator: ' + msgAdmin + '\n'
+    proxy = 'No'
     if userdata['proxy'] !='':
-       proxy = '🟢'
-    tokenize = '🔴'
+       proxy = 'Yes'
+    tokenize = 'Off'
     if userdata['tokenize']!=0:
-       tokenize = '🟢'
-    msg+= '📡 PROXY: ' + proxy + '\n'
-    msg+= '🔒 ENCRYPT: ' + tokenize + '\n\n'
-    msg+= '⚙️CONFIGURE CREDENTIALS⚙️\n Example: /acc user,password'
+       tokenize = 'On'
+    msg+= '📡 Proxy setted: ' + proxy + '\n'
+    msg+= '🔒 Encrypt links: ' + tokenize + '\n\n'
+    msg+= '⚙️Configure credentials⚙️\n Example: /acc user,password'
     return msg
     
