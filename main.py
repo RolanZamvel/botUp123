@@ -118,12 +118,12 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                     except:pass
                 return draftlist
             else:
-                bot.editMessageText(message,'⚠️Error en la nube⚠️')
+                bot.editMessageText(message,'⚠️CLOUD ERROR⚠️')
         elif cloudtype == 'cloud':
             tokenize = False
             if user_info['tokenize']!=0:
                tokenize = True
-            bot.editMessageText(message,'🚀Subiendo ☁️ Espere por favor...😄')
+            bot.editMessageText(message,'🚀UPLOADING ☁️ WAIT PLEASE...😄')
             host = user_info['moodle_host']
             user = user_info['moodle_user']
             passw = user_info['moodle_password']
@@ -142,7 +142,7 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                return filesdata
         return None
     except Exception as ex:
-        bot.editMessageText(message,f'⚠️Error {str(ex)}⚠️')
+        bot.editMessageText(message,f'⚠️ERROR {str(ex)}⚠️')
 
 
 def processFile(update,bot,message,file,thread=None,jdb=None):
@@ -169,7 +169,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
     else:
         client = processUploadFiles(file,file_size,[file],update,bot,message,jdb=jdb)
         file_upload_count = 1
-    bot.editMessageText(message,'📦Preparando archivo📄...')
+    bot.editMessageText(message,'📦PREPARING FILE📄...')
     evidname = ''
     files = []
     if client:
@@ -244,14 +244,14 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
                 with open(fname, "w") as f:
                     f.write(str(loco))
                 #fname = str(randint(100000000, 9999999999)) + ".txt"
-                bot.sendMessage(message.chat.id,'ENLACES DIRECTOS DE CALENDARIO')
+                bot.sendMessage(message.chat.id,'CALENDAR DIRECT LINKS')
                 bot.sendFile(update.message.chat.id,fname)
             else:
                 return
         except:
-            bot.sendMessage(message.chat.id,'💢NO SE PUDO MOVER A CALENDARIO💢')
+            bot.sendMessage(message.chat.id,'💢COULD NOT MOVE TO CALENDAR💢')
     else:
-        bot.editMessageText(message,'⚠️Error en la nube⚠️')
+        bot.editMessageText(message,'⚠️CLOUD ERROR⚠️')
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
     downloader = Downloader()
@@ -297,8 +297,8 @@ def onmessage(update,bot:ObigramClient):
                 user_info = jdb.get_user(username)
                 jdb.save()
         else:
-            mensaje = "Usted no tiene acceso.\nPor favor Contacta con mi Programador @manzanatg\n"
-            intento_msg = "💢El usuario @"+username+ " ha intentando usar el bot sin permiso💢"
+            mensaje = "YOU DO NOT HAVE ACCESS.\nPLEASE CONTACT WITH MY OWNER @manzanatg\n"
+            intento_msg = "💢THE USER @"+username+ " HAS TRIED TO ACCESS WITHOUT PERMISSION💢"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(1137219031,intento_msg)
             return
@@ -317,7 +317,7 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_user(user)
                     jdb.save()
-                    msg = '✅El usuario @'+user+' ah sido agregado al bot!'
+                    msg = '✅THE USER @'+user+' HAS BEING ADDED TO THE BOT!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
                     bot.sendMessage(update.message.chat.id,f'⚠️Error en el comando /add usuario')
