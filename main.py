@@ -57,7 +57,7 @@ def uploadFile(filename,currentBits,totalBits,speed,time,args):
 
 def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jdb=None):
     try:
-        bot.editMessageText(message,'📦Preparando para subir☁️...')
+        bot.editMessageText(message,'📦PREPARING FOR UPLOAD☁️...')
         evidence = None
         fileid = None
         user_info = jdb.get_user(update.message.sender.username)
@@ -320,9 +320,9 @@ def onmessage(update,bot:ObigramClient):
                     msg = '✅THE USER @'+user+' HAS BEING ADDED TO THE BOT!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Error en el comando /add usuario')
+                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /add user')
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return
         if '/admin' in msgText:
             isadmin = jdb.is_admin(username)
@@ -331,12 +331,12 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_admin(user)
                     jdb.save()
-                    msg = '✅Ahora @'+user+' es admin del bot también.'
+                    msg = '✅NOW @'+user+' IS A BOT ADMIN TOO.'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Error en el comando /admin usuario⚠️')
+                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /admin user⚠️')
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return
 
         if '/preview' in msgText:
@@ -346,12 +346,12 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_user_evea_preview(user)
                     jdb.save()
-                    msg = '✅El usuario @'+user+' ahora está en modo prueba.'
+                    msg = '✅THE USER @'+user+' NOW IS IN TEST MODE.'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Error en el comando /preview usuario⚠️')
+                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /preview user⚠️')
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return 
         if '/ban' in msgText:
             isadmin = jdb.is_admin(username)
@@ -359,16 +359,16 @@ def onmessage(update,bot:ObigramClient):
                 try:
                     user = str(msgText).split(' ')[1]
                     if user == username:
-                        bot.sendMessage(update.message.chat.id,'⚠️No puede banearse a si mismo⚠️')
+                        bot.sendMessage(update.message.chat.id,'⚠️YOU CAN NOT BAN YOURSELF⚠️')
                         return
                     jdb.remove(user)
                     jdb.save()
-                    msg = 'El usuario ('+user+')ah sido baneado del bot!'
+                    msg = 'THE USER @'+user+' HAS BEING BANED FROM THE BOT!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,'⚠️Error en el comando /ban usuario⚠️')
+                    bot.sendMessage(update.message.chat.id,'⚠️Command error /ban user⚠️')
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return
         if '/obtenerdb' in msgText:
             isadmin = jdb.is_admin(username)
@@ -379,7 +379,7 @@ def onmessage(update,bot:ObigramClient):
                 bot.editMessageText(sms1,sms2)
                 bot.sendFile(update.message.chat.id,'database.jdb')
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return
         if '/leerdb' in msgText:
             isadmin = jdb.is_admin(username)
@@ -388,16 +388,16 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id,database.read())
                 database.close()
             else:
-                bot.sendMessage(update.message.chat.id,'⚠️No posee permisos de administrador⚠️')
+                bot.sendMessage(update.message.chat.id,'👮YOU DO NOT HAVE ADMINISTRATOR PERMISSIONS👮')
             return
         if '/useradm' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 message = bot.sendMessage(update.message.chat.id,'🦾')
-                message = bot.sendMessage(update.message.chat.id,'🦾Es administrador del bot así que tiene control total sobre el mismo✅')
+                message = bot.sendMessage(update.message.chat.id,'🦾YOU ARE BOT ADMIN, SO YOU HAVE TOTAL CONTROL OVER ITSELF✅')
             else:
                 message = bot.sendMessage(update.message.chat.id,'🙁')
-                message = bot.sendMessage(update.message.chat.id,'🙁Usted es solo usuario, por ahora tiene control parcialmente sobre el bot❎')
+                message = bot.sendMessage(update.message.chat.id,'🙁YOU ARE JUST USER, FOR NOW YOU HAVE LIMITATED CONTROL❎')
             return
         # end
 
