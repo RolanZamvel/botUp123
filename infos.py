@@ -33,7 +33,7 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg+= '🏷️ NAME: ' + str(filename)+'\n'
     msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(totalBits))+'\n'
     msg+= '📥 DOWNLOADED: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '⏫ SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '📶 SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
     msg+= '⏲️ TIME LEFT: ' + str(datetime.timedelta(seconds=int(time))) +'\n\n'
 
     msg = '📥DESCARGANDO ARCHIVO📡...\n\n'
@@ -42,7 +42,7 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg += '📊 PERCENTAGE: '+str(porcent(currentBits,totalBits))+'%\n\n'
     msg += '📦 TOTAL SIZE: '+sizeof_fmt(totalBits)+'\n\n'
     msg += '📥 DOWNLOADED: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '⏫ SPEED: '+sizeof_fmt(speed)+'/s\n\n'
+    msg += '📶 SPEED: '+sizeof_fmt(speed)+'/s\n\n'
     msg += '⏲️ TIME LEFT: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
@@ -56,7 +56,7 @@ def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
         msg+= '📤 UPLOADING: ' + str(filename)+'\n'
     msg+= '📦 TOTAL SIZE: ' + str(sizeof_fmt(totalBits))+'\n'
     msg+= '📤 UPLOADED: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '⏫ SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '📶 SPEED: ' + str(sizeof_fmt(speed))+'/s\n'
     msg+= '⏲️ TIME LEFT: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
     msg = '📤UPLOADING☁️...\n\n'
@@ -68,7 +68,7 @@ def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
     msg += '📊 PERCENTAGE: '+str(porcent(currentBits,totalBits))+'%\n\n'
     msg += '📦 TOTAL SIZE: '+sizeof_fmt(totalBits)+'\n\n'
     msg += '📤 UPLOADED: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '⏫ SPEED: '+sizeof_fmt(speed)+'/s\n\n'
+    msg += '📶 SPEED: '+sizeof_fmt(speed)+'/s\n\n'
     msg += '⏲️ TIME LEFT: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     return msg
