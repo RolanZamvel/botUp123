@@ -57,7 +57,7 @@ def uploadFile(filename,currentBits,totalBits,speed,time,args):
 
 def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jdb=None):
     try:
-        bot.editMessageText(message,'📦Preparing for upload☁️...')
+        bot.editMessageText(message,'📦𝙿𝚛𝚎𝚙𝚊𝚛𝚒𝚗𝚐 𝚏𝚘𝚛 𝚞𝚙𝚕𝚘𝚊𝚍☁️...')
         evidence = None
         fileid = None
         user_info = jdb.get_user(update.message.sender.username)
@@ -118,12 +118,12 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                     except:pass
                 return draftlist
             else:
-                bot.editMessageText(message,'⚠️Cloud error⚠️')
+                bot.editMessageText(message,'⚠️𝙲𝚕𝚘𝚞𝚍 𝚎𝚛𝚛𝚘𝚛⚠️')
         elif cloudtype == 'cloud':
             tokenize = False
             if user_info['tokenize']!=0:
                tokenize = True
-            bot.editMessageText(message,'🚀Uploading ☁️ wait please...😄')
+            bot.editMessageText(message,'🚀𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐 ☁️ 𝚙𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝...😄')
             host = user_info['moodle_host']
             user = user_info['moodle_user']
             passw = user_info['moodle_password']
@@ -142,7 +142,7 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                return filesdata
         return None
     except Exception as ex:
-        bot.editMessageText(message,f'⚠️Error {str(ex)}⚠️')
+        bot.editMessageText(message,f'⚠️𝙴𝚛𝚛𝚘𝚛 {str(ex)}⚠️')
 
 
 def processFile(update,bot,message,file,thread=None,jdb=None):
@@ -169,7 +169,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
     else:
         client = processUploadFiles(file,file_size,[file],update,bot,message,jdb=jdb)
         file_upload_count = 1
-    bot.editMessageText(message,'📦Preparing file📄...')
+    bot.editMessageText(message,'📦𝙿𝚛𝚎𝚙𝚊𝚛𝚒𝚗𝚐 𝚏𝚒𝚕𝚎📄...')
     evidname = ''
     files = []
     if client:
@@ -249,9 +249,9 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
             else:
                 return
         except:
-            bot.sendMessage(message.chat.id,'💢Could not move to calendar💢')
+            bot.sendMessage(message.chat.id,'💢𝙲𝚘𝚞𝚕𝚍 𝚗𝚘𝚝 𝚖𝚘𝚟𝚎 𝚝𝚘 𝚌𝚊𝚕𝚎𝚗𝚍𝚊𝚛💢')
     else:
-        bot.editMessageText(message,'⚠️Cloud error⚠️')
+        bot.editMessageText(message,'⚠️𝙲𝚕𝚘𝚞𝚍 𝚎𝚛𝚛𝚘𝚛⚠️')
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
     downloader = Downloader()
@@ -297,8 +297,8 @@ def onmessage(update,bot:ObigramClient):
                 user_info = jdb.get_user(username)
                 jdb.save()
         else:
-            mensaje = "You do not have access.\nContact with my owner: @manzanatg\n"
-            intento_msg = "💢The user @"+username+ " has tried to access without permissions💢"
+            mensaje = "𝚈𝚘𝚞 𝚍𝚘 𝚗𝚘𝚝 𝚑𝚊𝚟𝚎 𝚊𝚌𝚌𝚎𝚜𝚜.\n𝙲𝚘𝚗𝚝𝚊𝚌𝚝 𝚠𝚒𝚝𝚑 𝚖𝚢 𝚘𝚠𝚗𝚎𝚛: @manzanatg\n"
+            intento_msg = "💢𝚃𝚑𝚎 𝚞𝚜𝚎𝚛 @"+username+ " 𝚑𝚊𝚜 𝚝𝚛𝚒𝚎𝚍 𝚝𝚘 𝚊𝚌𝚌𝚎𝚜𝚜 𝚠𝚒𝚝𝚑𝚘𝚞𝚝 𝚙𝚎𝚛𝚖𝚒𝚜𝚜𝚒𝚘𝚗💢"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(1137219031,intento_msg)
             return
@@ -317,12 +317,12 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_user(user)
                     jdb.save()
-                    msg = '✅The user @'+user+' has being added to the bot!'
+                    msg = '✅𝚃𝚑𝚎 𝚞𝚜𝚎𝚛 @'+user+' 𝚑𝚊𝚜 𝚋𝚎𝚒𝚗𝚐 𝚊𝚍𝚍𝚎𝚍 𝚝𝚘 𝚝𝚑𝚎 𝚋𝚘𝚝!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /add user')
+                    bot.sendMessage(update.message.chat.id,f'⚠️𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚎𝚛𝚛𝚘𝚛 /add 𝚞𝚜𝚎𝚛𝚗𝚊𝚖𝚎')
             else:
-                bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
+                bot.sendMessage(update.message.chat.id,'👮𝚈𝚘𝚞 𝚍𝚘 𝚗𝚘𝚝 𝚑𝚊𝚟𝚎 𝚊𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛 𝚙𝚎𝚛𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝚜👮')
             return
         if '/admin' in msgText:
             isadmin = jdb.is_admin(username)
@@ -331,12 +331,12 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_admin(user)
                     jdb.save()
-                    msg = '✅Now @'+user+' is a bot admin too.'
+                    msg = '✅Now @'+user+' is a bot admin too!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /admin user⚠️')
+                    bot.sendMessage(update.message.chat.id,f'⚠️𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚎𝚛𝚛𝚘𝚛 /admin 𝚞𝚜𝚎𝚛𝚗𝚊𝚖𝚎⚠️')
             else:
-                bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
+                bot.sendMessage(update.message.chat.id,'👮𝚈𝚘𝚞 𝚍𝚘 𝚗𝚘𝚝 𝚑𝚊𝚟𝚎 𝚊𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛 𝚙𝚎𝚛𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝚜👮')
             return
 
         if '/preview' in msgText:
@@ -349,7 +349,7 @@ def onmessage(update,bot:ObigramClient):
                     msg = '✅The user @'+user+' now is in test mode.'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,f'⚠️Command error /preview user⚠️')
+                    bot.sendMessage(update.message.chat.id,f'⚠️𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚎𝚛𝚛𝚘𝚛 /preview user⚠️')
             else:
                 bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
             return 
@@ -366,7 +366,7 @@ def onmessage(update,bot:ObigramClient):
                     msg = 'THE USER @'+user+' HAS BEING BANED FROM THE BOT!'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
-                    bot.sendMessage(update.message.chat.id,'⚠️Command error /ban user⚠️')
+                    bot.sendMessage(update.message.chat.id,'⚠️𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚎𝚛𝚛𝚘𝚛 /ban user⚠️')
             else:
                 bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
             return
