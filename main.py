@@ -244,7 +244,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
                 with open(fname, "w") as f:
                     f.write(str(loco))
                 #fname = str(randint(100000000, 9999999999)) + ".txt"
-                bot.sendMessage(message.chat.id,'CALENDAR DIRECT LINKS')
+                bot.sendMessage(message.chat.id,'📅𝙲𝚊𝚕𝚎𝚗𝚍𝚊𝚛 𝚍𝚒𝚛𝚎𝚌𝚝 𝚕𝚒𝚗𝚔/𝚜🔗')
                 bot.sendFile(update.message.chat.id,fname)
             else:
                 return
@@ -403,7 +403,7 @@ def onmessage(update,bot:ObigramClient):
 
         # comandos de usuario
         if '/help' in msgText:
-            message = bot.sendMessage(update.message.chat.id,'User guide:')
+            message = bot.sendMessage(update.message.chat.id,'𝚄𝚜𝚎𝚛 𝚐𝚞𝚒𝚍𝚎:')
             tuto = open('tuto.txt','r')
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
@@ -567,7 +567,7 @@ def onmessage(update,bot:ObigramClient):
                     jdb.save_data_user(username,getUser)
                     jdb.save()
                     statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-                    bot.sendMessage(update.message.chat.id,'🔒No encrypt download links.')
+                    bot.sendMessage(update.message.chat.id,'🔒𝙽𝚘 𝚎𝚗𝚌𝚛𝚢𝚙𝚝 𝚍𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝚕𝚒𝚗𝚔𝚜.')
             except:
                 bot.sendMessage(update.message.chat.id,'⚠️𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝚎𝚛𝚛𝚘𝚛 /encript_off 𝚎𝚗𝚌𝚛𝚢𝚙𝚝_𝚜𝚝𝚊𝚝𝚎⚠️')
             return
