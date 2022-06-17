@@ -370,7 +370,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'👮𝚈𝚘𝚞 𝚍𝚘 𝚗𝚘𝚝 𝚑𝚊𝚟𝚎 𝚊𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛 𝚙𝚎𝚛𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝚜👮')
             return
-        if '/obtenerdb' in msgText:
+        if '/get_database' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 sms1 = bot.sendMessage(update.message.chat.id,'𝚂𝚎𝚗𝚍𝚒𝚗𝚐 𝚍𝚊𝚝𝚊𝚋𝚊𝚜𝚎...')
@@ -381,7 +381,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'👮𝚈𝚘𝚞 𝚍𝚘 𝚗𝚘𝚝 𝚑𝚊𝚟𝚎 𝚊𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛 𝚙𝚎𝚛𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝚜👮')
             return
-        if '/leerdb' in msgText:
+        if '/read_database' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 database = open('database.jdb','r')
