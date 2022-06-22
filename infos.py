@@ -14,8 +14,8 @@ def text_progres(index,max):
 		index_make = 1
 		make_text += '\n['
 		while(index_make<20):
-			if porcent >= index_make * 5: make_text+= '✦'
-			else: make_text+= '✧'
+			if porcent >= index_make * 5: make_text+= '▰'
+			else: make_text+= '▱'
 			index_make+=1
 		make_text += ']\n'
 		return make_text
@@ -29,70 +29,70 @@ def porcent(index,max):
     return porcent
 
 def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
-    msg = '📥𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐📡... \n\n'
-    msg+= '🏷️ 𝙽𝚊𝚖𝚎: ' + str(filename)+'\n'
-    msg+= '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(totalBits))+'\n'
-    msg+= '📥 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚍: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '📶 𝚂𝚙𝚎𝚎𝚍: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= '⏲️ 𝚃𝚒𝚖𝚎 𝚕𝚎𝚏𝚝: ' + str(datetime.timedelta(seconds=int(time))) +'\n\n'
+    msg = '╭─📥Downloading📡... \n'+'│'+'\n'
+    msg+= '├🏷️ File name: ' + str(filename)+'\n'
+    msg+= '├📦 Total size: ' + str(sizeof_fmt(totalBits))+'\n'
+    msg+= '├📥 Downloaded: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '├⚡️ Speed: ' + str(sizeof_fmt(speed))+'/s\n'+'│'+'\n'
+    msg+= '╰─⏲️ Time left: ' + str(datetime.timedelta(seconds=int(time))) +'\n\n'
 
-    msg = '📥𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐 𝚏𝚒𝚕𝚎📡...\n\n'
-    msg += '📦 𝙵𝚒𝚕𝚎: '+filename+'\n'
+    msg = '╭─📥Downloading file📡...\n'+'│'+'\n'
+    msg += '╰─🏷️ File name: '+filename+'\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '📊 𝙿𝚎𝚛𝚌𝚎𝚗𝚝𝚊𝚐𝚎: '+str(porcent(currentBits,totalBits))+'%\n\n'
-    msg += '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: '+sizeof_fmt(totalBits)+'\n\n'
-    msg += '📥 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚍: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '📶 𝚂𝚙𝚎𝚎𝚍: '+sizeof_fmt(speed)+'/s\n\n'
-    msg += '⏲️ 𝚃𝚒𝚖𝚎 𝚕𝚎𝚏𝚝: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += '╭─🚦 Percentage: '+str(porcent(currentBits,totalBits))+'%\n'+'│'+'\n'
+    msg += '├📦 Total size: '+sizeof_fmt(totalBits)+'\n'
+    msg += '├📥 Downloaded: '+sizeof_fmt(currentBits)+'\n'
+    msg += '├⚡️ Speed: '+sizeof_fmt(speed)+'/s\n'+'│'+'\n'
+    msg += '╰─⏲️ Time left: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
         msg+= '/cancel_' + tid
     return msg
 def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
-    msg = '📤𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐☁️... \n\n'
-    msg+= '🏷️ 𝙵𝚒𝚕𝚎: ' + str(filename)+'\n'
+    msg = '╭─📤Uploading☁️... \n'+'│'+'\n'
+    msg+= '├🏷️ File name: ' + str(filename)+'\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= '📤𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐: ' + str(filename)+'\n'
-    msg+= '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(totalBits))+'\n'
-    msg+= '📤 𝚄𝚙𝚕𝚘𝚊𝚍𝚎𝚍: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= '📶 𝚂𝚙𝚎𝚎𝚍: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= '⏲️ 𝚃𝚒𝚖𝚎 𝚕𝚎𝚏𝚝: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+        msg+= '╭─📤Uploading: ' + str(filename)+'\n'
+    msg+= '├📦 Total size: ' + str(sizeof_fmt(totalBits))+'\n'
+    msg+= '├📤 Uploaded: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '├⚡️ Speed: ' + str(sizeof_fmt(speed))+'/s\n'+'│'+'\n'
+    msg+= '╰─⏲️ Time left: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
-    msg = '📤𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐☁️...\n\n'
-    msg += '🏷️ 𝙽𝚊𝚖𝚎: '+filename+'\n'
+    msg = '╭─📤Uploading☁️...\n'+'│'+'\n'
+    msg += '├🏷️ File name: '+filename+'\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= '📚 𝙿𝚊𝚛𝚝: ' + str(filename)+'\n'
+        msg+= '╰─📚 Part: ' + str(filename)+'\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '📊 𝙿𝚎𝚛𝚌𝚎𝚗𝚝𝚊𝚐𝚎: '+str(porcent(currentBits,totalBits))+'%\n\n'
-    msg += '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: '+sizeof_fmt(totalBits)+'\n\n'
-    msg += '📤 𝚄𝚙𝚕𝚘𝚊𝚍𝚎𝚍: '+sizeof_fmt(currentBits)+'\n\n'
-    msg += '📶 𝚂𝚙𝚎𝚎𝚍: '+sizeof_fmt(speed)+'/s\n\n'
-    msg += '⏲️ 𝚃𝚒𝚖𝚎 𝚕𝚎𝚏𝚝: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += '╭─🚦 Percentage: '+str(porcent(currentBits,totalBits))+'%\n'
+    msg += '├📦 Total size: '+sizeof_fmt(totalBits)+'\n'
+    msg += '├📤 Uploaded: '+sizeof_fmt(currentBits)+'\n'
+    msg += '├⚡️ Speed: '+sizeof_fmt(speed)+'/s\n'+'│'+'\n'
+    msg += '╰─⏲️ Time left: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
-    msg = '🗜️𝙲𝚘𝚖𝚙𝚛𝚎𝚜𝚜𝚒𝚗𝚐🗜️... \n\n'
-    msg+= '🏷️ 𝙽𝚊𝚖𝚎: ' + str(filename)+'\n'
-    msg+= '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📚 𝙿𝚊𝚛𝚝𝚜 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(splitsize))+'\n'
-    msg+= '📕 𝙰𝚖𝚘𝚞𝚗𝚝 𝚘𝚏 𝚙𝚊𝚛𝚝𝚜: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
+    msg = '╭─🗜️Compressing🗜️... \n'+'│'+'\n'
+    msg+= '├🏷️ File name: ' + str(filename)+'\n'
+    msg+= '├📦 Total size: ' + str(sizeof_fmt(filesize))+'\n'
+    msg+= '├📚 Parts size: ' + str(sizeof_fmt(splitsize))+'\n'+'│'+'\n'
+    msg+= '╰─📕 Amount of parts: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
 
     return msg
 def createFinishUploading(filename,filesize,split_size,current,count,findex):
-    msg = '📌𝙵𝚒𝚗𝚒𝚜𝚑𝚎𝚍 𝚙𝚛𝚘𝚌𝚎𝚜𝚜📌\n\n'
-    msg+= '🏷️ 𝙽𝚊𝚖𝚎: ' + str(filename)+'\n'
-    msg+= '📦 𝚃𝚘𝚝𝚊𝚕 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= '📚 𝙿𝚊𝚛𝚝𝚜 𝚜𝚒𝚣𝚎: ' + str(sizeof_fmt(split_size))+'\n'
-    msg+= '📤 𝚄𝚙𝚕𝚘𝚊𝚍𝚎𝚍 𝚙𝚊𝚛𝚝𝚜: ' + str(current) + '/' + str(count) +'\n\n'
-    msg+= '🗑️𝙳𝚎𝚕𝚎𝚝𝚎 𝚏𝚒𝚕𝚎🗑️: ' + '/del_'+str(findex)
+    msg = '╭─✅Completed✅\n'+'│'+'\n'
+    msg+= '├🏷️ File name: ' + str(filename)+'\n'
+    msg+= '├📦 Total size: ' + str(sizeof_fmt(filesize))+'\n'
+    msg+= '├📚 Parts size: ' + str(sizeof_fmt(split_size))+'\n'
+    msg+= '├📤 Uploaded parts: ' + str(current) + '/' + str(count) +'\n'+'│'+'\n'
+    msg+= '╰─🗑️Delete file🗑️: ' + '/del_'+str(findex)
     return msg
 
 def createFileMsg(filename,files):
     import urllib
     if len(files)>0:
-        msg= '<b>🔗𝙻𝚒𝚗𝚔𝚜🔗</b>\n'
+        msg= '<b>🔗Link/s🔗</b>\n'
         for f in files:
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
@@ -101,7 +101,7 @@ def createFileMsg(filename,files):
     return ''
 
 def createFilesMsg(evfiles):
-    msg = '📑𝙵𝚒𝚕𝚎𝚜 ('+str(len(evfiles))+')📑\n\n'
+    msg = '📑File/s ('+str(len(evfiles))+')📑\n\n'
     i = 0
     for f in evfiles:
             try:
@@ -118,30 +118,30 @@ def createFilesMsg(evfiles):
     return msg
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '⚙️𝚄𝚜𝚎𝚛 𝚌𝚘𝚗𝚏𝚒𝚐𝚞𝚛𝚊𝚝𝚒𝚘𝚗⚙️\n\n'
-    msg+= '👤 𝙽𝚊𝚖𝚎: @' + str(username)+'\n'
-    msg+= '👤 𝚄𝚜𝚎𝚛: ' + str(userdata['moodle_user'])+'\n'
-    msg+= '🔑 𝙿𝚊𝚜𝚜𝚠𝚘𝚛𝚍: ' + str(userdata['moodle_password'])+'\n'
-    msg+= '🌐 𝙲𝚕𝚘𝚞𝚍 𝚄𝚁𝙻: ' + str(userdata['moodle_host'])+'\n'
+    msg = '╭─ⓘUser dataⓘ─〄\n'+'│'+'\n'
+    msg+= '├👤 Username: @' + str(username)+'\n'
+    msg+= '├👤 User: ' + str(userdata['moodle_user'])+'\n'
+    msg+= '├🔑 Password: ' + str(userdata['moodle_password'])+'\n'
+    msg+= '├🌐 Cloud URL: ' +'\n'+'├─'+ str(userdata['moodle_host'])+'\n'
     if userdata['cloudtype'] == 'moodle':
-        msg+= '🆔 𝙲𝚕𝚘𝚞𝚍 𝙸𝙳: ' + str(userdata['moodle_repo_id'])+'\n'
-    msg+= '☁️ 𝙲𝚕𝚘𝚞𝚍 𝚝𝚢𝚙𝚎: ' + str(userdata['cloudtype'])+'\n'
-    msg+= '🔼 𝚄𝚙𝚕𝚘𝚊𝚍 𝚝𝚢𝚙𝚎: ' + str(userdata['uploadtype'])+'\n'
+        msg+= '├🆔 Cloud ID: ' + str(userdata['moodle_repo_id'])+'\n'
+    msg+= '├☁️ Cloud type: ' + str(userdata['cloudtype'])+'\n'
+    msg+= '├🔼 Upload type: ' + str(userdata['uploadtype'])+'\n'
     if userdata['cloudtype'] == 'cloud':
-        msg+= '📁 𝙳𝚒𝚛𝚎𝚌𝚝𝚘𝚛𝚢: /' + str(userdata['dir'])+'\n'
-    msg+= '🗜️ 𝚉𝚒𝚙𝚜 𝚜𝚒𝚣𝚎: ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n\n'
-    msgAdmin = '𝙽𝚘'
+        msg+= '├📁 Directory: /' + str(userdata['dir'])+'\n'
+    msg+= '├🗜️ Zips size: ' + sizeof_fmt(userdata['zips']*1024*1024) + '\n'
+    msgAdmin = 'No'
     if isadmin:
-        msgAdmin = '𝚈𝚎𝚜'
-    msg+= '👮 𝙰𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛: ' + msgAdmin + '\n'
-    proxy = '𝙽𝚘'
+        msgAdmin = 'Yes'
+    msg+= '├👮 𝙰𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛: ' + msgAdmin + '\n'
+    proxy = 'No'
     if userdata['proxy'] !='':
-       proxy = '𝚈𝚎𝚜'
-    tokenize = '𝙾𝚏𝚏'
+       proxy = 'Yes'
+    tokenize = 'Off'
     if userdata['tokenize']!=0:
-       tokenize = '𝙾𝚗'
-    msg+= '📡 𝙿𝚛𝚘𝚡𝚢 𝚜𝚎𝚝𝚝𝚎𝚍: ' + proxy + '\n'
-    msg+= '🔒 𝙴𝚗𝚌𝚛𝚢𝚙𝚝 𝚕𝚒𝚗𝚔𝚜: ' + tokenize + '\n\n'
-    msg+= '⚙️𝙲𝚘𝚗𝚏𝚒𝚐𝚞𝚛𝚎 𝚌𝚛𝚎𝚍𝚎𝚗𝚝𝚒𝚊𝚕𝚜⚙️\n 𝙴𝚡𝚊𝚖𝚙𝚕𝚎: /acc 𝚞𝚜𝚎𝚛,𝚙𝚊𝚜𝚜𝚠𝚘𝚛𝚍'
+       tokenize = 'On'
+    msg+= '├📡 Proxy setted: ' + proxy + '\n'
+    msg+= '├🔒 Encrypt links: ' + tokenize + '\n'+'│'+'\n'
+    msg+= '╰─ⓘUser dataⓘ─⎔'
     return msg
     
