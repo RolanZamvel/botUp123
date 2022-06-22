@@ -829,6 +829,34 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.editMessageText(message,'🤔')
                 message = bot.sendMessage(update.message.chat.id,'⚠️Error and possible causes:\n1-Check your account\n2-Server disabled: '+client.path)
+        elif '/delete' in msgText:
+            enlace = msgText.split('/delete')[-1]
+            proxy = ProxyCloud.parse(user_info['proxy'])
+            client = MoodleClient(user_info['moodle_user'],
+                                   user_info['moodle_password'],
+                                   user_info['moodle_host'],
+                                   user_info['moodle_repo_id'],
+                                   proxy=proxy)
+            loged= client.login()
+            if loged:
+                #update.message.chat.id
+                deleted = client.delete(enlace)
+
+                bot.sendMessage(update.message.chat.id, "Archivo eliminado con exito...")
+
+
+        elif '/aulacened' in msgText:
+            getUser = user_info
+            getUser['moodle_host'] = "https://aulacened.uci.cu/"
+            getUser['uploadtype'] =  "draft"
+            getUser['moodle_user'] = "---"
+            getUser['moodle_password'] = "---"
+            getUser['moodle_repo_id'] = 5
+            getUser['zips'] = 248
+            jdb.save_data_user(username,getUser)
+            jdb.save()
+            statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+            bot.editMessageText(message,"✅Aulacened configuration loaded")
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
