@@ -133,7 +133,7 @@ def createStat(username,userdata,isadmin):
     msgAdmin = 'No'
     if isadmin:
         msgAdmin = 'Yes'
-    msg+= '├👮 𝙰𝚍𝚖𝚒𝚗𝚒𝚜𝚝𝚛𝚊𝚝𝚘𝚛: ' + msgAdmin + '\n'
+    msg+= '├👮 Administrator: ' + msgAdmin + '\n'
     proxy = 'No'
     if userdata['proxy'] !='':
        proxy = 'Yes'
