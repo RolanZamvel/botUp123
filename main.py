@@ -297,7 +297,7 @@ def onmessage(update,bot:ObigramClient):
                 user_info = jdb.get_user(username)
                 jdb.save()
         else:
-            mensaje = "You do not have access.\nContact with my owner: @manzanatg\n"
+            mensaje = "🚫Access denied🚫\nContact with my owner: @manzanatg\n"
             intento_msg = "💢The user @"+username+ " has tried to access without permission💢"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(1137219031,intento_msg)
@@ -346,14 +346,14 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_user_evea_preview(user)
                     jdb.save()
-                    msg = '✅The user @'+user+' now is in test mode.'
+                    msg = '✅The user @'+user+' is now in test mode'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
                     bot.sendMessage(update.message.chat.id,f'⚠️Command error /preview username⚠️')
             else:
                 bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
             return 
-        if '/ban' in msgText:
+        if '/revoke' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -363,14 +363,14 @@ def onmessage(update,bot:ObigramClient):
                         return
                     jdb.remove(user)
                     jdb.save()
-                    msg = '𝚃𝚑𝚎 𝚞𝚜𝚎𝚛 @'+user+' 𝚑𝚊𝚜 𝚋𝚎𝚒𝚗𝚐 𝚋𝚊𝚗𝚗𝚎𝚍 𝚏𝚛𝚘𝚖 𝚝𝚑𝚎 𝚋𝚘𝚝!'
+                    msg = 'The user @'+user+' has being banned from the bot'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
                     bot.sendMessage(update.message.chat.id,'⚠️Command error /ban username⚠️')
             else:
                 bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
             return
-        if '/get_database' in msgText:
+        if '/send_the_fucking_database' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 sms1 = bot.sendMessage(update.message.chat.id,'Sending database...')
@@ -381,7 +381,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'👮You do not have administrator permissions👮')
             return
-        if '/read_database' in msgText:
+        if '/read_the_fucking_database' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 database = open('database.jdb','r')
@@ -403,7 +403,7 @@ def onmessage(update,bot:ObigramClient):
 
         # comandos de usuario
         if '/help' in msgText:
-            message = bot.sendMessage(update.message.chat.id,'𝚄𝚜𝚎𝚛 𝚐𝚞𝚒𝚍𝚎:')
+            message = bot.sendMessage(update.message.chat.id,'User guide:')
             tuto = open('tuto.txt','r')
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
@@ -708,17 +708,7 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = '   🌟𝔹𝕠𝕥 𝕚𝕟𝕚𝕔𝕚𝕒𝕥𝕖𝕕🌟\n'
-            start_msg+= '✥ ------✥◈✥------ ✥\n'
-            start_msg+= '🤖Hello @' + str(username)+'\n'
-            start_msg+= '🙂Welcome to free download bot SuperDownload on its initial version 1.0 PlusEdition🌟!\n'
-            start_msg+= '🦾Developer: > @Luis_Daniel_Díaz <\n'
-            start_msg+= '🙂If you need more information use:\n'
-            start_msg+= '/help\n'
-            start_msg+= '/about\n'
-            start_msg+= '😁Enjoy greatly your stay in here😁.\n'
-            bot.editMessageText(message,start_msg)
-            message = bot.sendMessage(update.message.chat.id,'🦾')
+            start_msg = '✅Accesss guaranteed\nThis is a Free Download Bot\nEnjoy its functions!'
         elif '/files' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
              client = MoodleClient(user_info['moodle_user'],
@@ -896,7 +886,7 @@ def onmessage(update,bot:ObigramClient):
         elif '/eduvirtual' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://eduvirtual.uho.edu.cu/"
-            getUser['uploadtype'] =  "calendar"
+            getUser['uploadtype'] =  "draft"
             getUser['moodle_user'] = "example"
             getUser['moodle_password'] = "Try123*"
             getUser['moodle_repo_id'] = 3
