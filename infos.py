@@ -65,7 +65,7 @@ def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
         msg = str(msg).replace(filename,originalname)
         msg+= '╰─📚 Part: ' + str(filename)+'\n'
     msg += text_progres(currentBits,totalBits)+'\n'
-    msg += '╭─🚦 Percentage: '+str(porcent(currentBits,totalBits))+'%\n'
+    msg += '╭─🚦 Percentage: '+str(porcent(currentBits,totalBits))+'%\n'+'│'+'\n'
     msg += '├📦 Total size: '+sizeof_fmt(totalBits)+'\n'
     msg += '├📤 Uploaded: '+sizeof_fmt(currentBits)+'\n'
     msg += '├⚡️ Speed: '+sizeof_fmt(speed)+'/s\n'+'│'+'\n'
@@ -119,7 +119,7 @@ def createFilesMsg(evfiles):
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
     msg = '╭─ⓘUser dataⓘ─〄\n'+'│'+'\n'
-    msg+= '├👤 Username: @' + str(username)+'\n'
+    msg+= '├💠 Username: @' + str(username)+'\n'
     msg+= '├👤 User: ' + str(userdata['moodle_user'])+'\n'
     msg+= '├🔑 Password: ' + str(userdata['moodle_password'])+'\n'
     msg+= '├🌐 Cloud URL: ' +'\n'+'├─'+ str(userdata['moodle_host'])+'\n'
