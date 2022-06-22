@@ -298,7 +298,7 @@ def onmessage(update,bot:ObigramClient):
                 jdb.save()
         else:
             mensaje = "🚫Access denied🚫\nContact with my owner: @manzanatg\n"
-            intento_msg = "💢The user @"+username+ " has tried to access without permission💢"
+            intento_msg = "🚫The user @"+username+ " has tried to access without permission🚫"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(1137219031,intento_msg)
             return
@@ -710,10 +710,18 @@ def onmessage(update,bot:ObigramClient):
         if '/start' in msgText:
             start_msg = '✅Accesss guaranteed✅\n'
             start_msg+= 'This is a Free Download Bot\n'
-            start_msg+= 'Enjoy its functions!\n'
-            start_msg+= 'Start by configurating it'
+            start_msg+= 'Start by configurating it\n'
+            start_msg+= 'There are commands for help you and make that task more simple, an example are the commands below\n'
+            start_msg+= '/aulacened\n'
+            start_msg+= '/aulacened\n'
+            start_msg+= '/cursos\n'
+            start_msg+= '/eva\n'
+            start_msg+= '/uclv\n'
+            start_msg+= 'For now those are all of them\n'
+            start_msg+= 'Also you can suggest a new command, fill free to contact me for any issue: @manzanatg\n'
+            start_msg+= 'It seems that you should not get lost, enjoy the other functions!\n'
             bot.editMessageText(message,start_msg)
-            message = bot.sendMessage(update.message.chat.id,'🧩')
+            message = bot.sendMessage(update.message.chat.id,'⚙️')
         elif '/files' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
              client = MoodleClient(user_info['moodle_user'],
