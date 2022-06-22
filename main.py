@@ -346,7 +346,7 @@ def onmessage(update,bot:ObigramClient):
                     user = str(msgText).split(' ')[1]
                     jdb.create_user_evea_preview(user)
                     jdb.save()
-                    msg = '✅𝚃𝚑𝚎 𝚞𝚜𝚎𝚛 @'+user+' 𝚗𝚘𝚠 𝚒𝚜 𝚒𝚗 𝚝𝚎𝚜𝚝 𝚖𝚘𝚍𝚎.'
+                    msg = '✅The user @'+user+' now is in test mode.'
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
                     bot.sendMessage(update.message.chat.id,f'⚠️Command error /preview username⚠️')
@@ -373,8 +373,8 @@ def onmessage(update,bot:ObigramClient):
         if '/get_database' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
-                sms1 = bot.sendMessage(update.message.chat.id,'𝚂𝚎𝚗𝚍𝚒𝚗𝚐 𝚍𝚊𝚝𝚊𝚋𝚊𝚜𝚎...')
-                sms2 = bot.sendMessage(update.message.chat.id,'𝙳𝚊𝚝𝚊𝚋𝚊𝚜𝚎:')
+                sms1 = bot.sendMessage(update.message.chat.id,'Sending database...')
+                sms2 = bot.sendMessage(update.message.chat.id,'Database:')
                 
                 bot.editMessageText(sms1,sms2)
                 bot.sendFile(update.message.chat.id,'database.jdb')
