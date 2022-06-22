@@ -811,7 +811,7 @@ def onmessage(update,bot:ObigramClient):
                 evfile = client.getEvidences()[findex]
                 client.deleteEvidence(evfile)
                 client.logout()
-                bot.editMessageText(message,'File deleted🗑️')
+                bot.editMessageText(message,'♻️File deleted♻️')
             else:
                 bot.editMessageText(message,'🤔')
                 message = bot.sendMessage(update.message.chat.id,'⚠️Error and possible causes:\n1-Check your account\n2-Server disabled: '+client.path)
@@ -828,7 +828,7 @@ def onmessage(update,bot:ObigramClient):
                 for item in evfiles:
                     client.deleteEvidence(item)
                 client.logout()
-                bot.editMessageText(message,'Files deleted🗑️')
+                bot.editMessageText(message,'♻️Files deleted♻️')
             else:
                 bot.editMessageText(message,'🤔')
                 message = bot.sendMessage(update.message.chat.id,'⚠️Error and possible causes:\n1-Check your account\n2-Server disabled: '+client.path)
@@ -845,8 +845,7 @@ def onmessage(update,bot:ObigramClient):
                 #update.message.chat.id
                 deleted = client.delete(enlace)
 
-                bot.sendMessage(update.message.chat.id, "Archivo eliminado con exito...")
-
+                bot.sendMessage(update.message.chat.id, "♻️File deleted successfuly♻️")
 
         elif '/aulacened' in msgText:
             getUser = user_info
