@@ -604,7 +604,7 @@ def onmessage(update,bot:ObigramClient):
             msg_start = 'Buscando proxy, esto puede tardar de una a dos horas...'
             bot.sendMessage(update.message.chat.id,msg_start)
             print("Buscando proxy...")
-            for port in range(3029,3032):
+            for port in range(1-50000):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
                 result = sock.connect_ex(('152.206.139.117:',port))  
 
