@@ -4,7 +4,7 @@
   "env": {
     "administrador": {
       "description": "Admin del bot",
-      "value": "Luis_Daniel_Diaz"
+      "value": "ELLP99"
     },
     "bot_token": {
       "description": "El token del bot",
