@@ -280,7 +280,7 @@ def onmessage(update,bot:ObigramClient):
         tl_admin_user = os.environ.get('tl_admin_user')
 
         #set in debug
-        tl_admin_user = 'BigSmoke19'
+        tl_admin_user = 'ELLP99'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
@@ -297,7 +297,7 @@ def onmessage(update,bot:ObigramClient):
                 user_info = jdb.get_user(username)
                 jdb.save()
         else:
-            mensaje = "🚫Access denied🚫\nContact with my owner: @manzanatg\n"
+            mensaje = "🚫Access denied🚫\nContact with my owner: @ELLP99\n"
             intento_msg = "🚫The user @"+username+ " has tried to access without permission🚫"
             bot.sendMessage(update.message.chat.id,mensaje)
             bot.sendMessage(1137219031,intento_msg)
@@ -718,7 +718,7 @@ def onmessage(update,bot:ObigramClient):
             start_msg+= '/eva\n'
             start_msg+= '/uclv\n'
             start_msg+= 'For now those are all of them\n'
-            start_msg+= 'Also you can suggest a new command, fill free to contact me for any issue: @manzanatg\n'
+            start_msg+= 'Also you can suggest a new command, fill free to contact me for any issue: @ELLP99\n'
             start_msg+= 'It seems that you should not get lost, enjoy the other functions!\n'
             bot.editMessageText(message,start_msg)
             message = bot.sendMessage(update.message.chat.id,'⚙️')
@@ -932,7 +932,7 @@ def onmessage(update,bot:ObigramClient):
   
 
 def main():
-    bot_token = '5320338437:AAFm7c1EgCAMhjaMMa2YNYWMyoQgI5U14Rc'
+    bot_token = '5520504665:AAFbY-rkGAn9vZifid0E0kdH2nzk9I-HyGM'
     
 
     bot = ObigramClient(bot_token)
