@@ -709,7 +709,7 @@ def onmessage(update,bot:ObigramClient):
 
         if '/start' in msgText:
             start_msg = '✅Accesss guaranteed✅\n'
-            start_msg+= 'This is a Free Download Bot\n'
+            start_msg+= 'This is a Free Download Bot use the command /commands to send you the list of commands of the bot\n'
             start_msg+= 'Start by configurating it\n'
             start_msg+= 'There are commands for help you and make that task more simple, an example are the commands below\n'
             start_msg+= '/aulacened\n'
